@@ -1,0 +1,654 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Kevin Jonathan Celestino Cruz: agentes de IA a medida, automatizaciones con n8n, asistentes de voz y publicidad en Meta para negocios.">
+<meta property="og:title" content="Kevin Jonathan Celestino Cruz · Automatización e IA">
+<meta property="og:description" content="Agentes de IA para WhatsApp, asistentes telefónicos, automatizaciones con n8n y Meta Ads. Casos reales con resultados.">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#0B1715">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230B1715'/%3E%3Ccircle cx='16' cy='16' r='6' fill='%23F08A4B'/%3E%3Ccircle cx='7' cy='9' r='3' fill='%235FD3B3'/%3E%3Ccircle cx='25' cy='24' r='3' fill='%235FD3B3'/%3E%3C/svg%3E">
+<style>.hero-links{display:flex;flex-wrap:wrap;gap:10px;margin-top:6px;pointer-events:auto}
+.hero-links a{font:600 14px var(--f-body);text-decoration:none;padding:9px 16px;border-radius:4px}
+.hero-links .wa{background:var(--hero-accent);color:var(--hero-bg)}
+.hero-links .pdf{border:1.5px solid var(--hero-muted);color:var(--hero-fg)}
+.hero-links a:focus-visible{outline:2px solid var(--hero-fg);outline-offset:3px}
+.cta a{color:inherit}</style>
+<title>CV Automatización e IA</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: hoja de CV de dos columnas (ficha técnica a la izquierda, casos y servicios a la derecha); se apila en móvil y se imprime en A4 */
+:root {
+  --bg: #F3F5F4;
+  --sheet: #FFFFFF;
+  --ink: #15201E;
+  --muted: #56645F;
+  --line: #DCE3E0;
+  --accent: #0E6B58;
+  --accent-soft: #E3F1EC;
+  --signal: #C8550F;
+  --todo-bg: #FFF1C2;
+  --todo-fg: #6B4A00;
+  --hero-bg: #0B1715;
+  --hero-fg: #EEF5F2;
+  --hero-muted: #A3B8B1;
+  --hero-accent: #5FD3B3;
+  --chat-bg: #EAE6DF;
+  --bubble: #D6F3E2;
+  --f-display: "Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+  --f-body: "IBM Plex Sans", "Segoe UI", system-ui, sans-serif;
+  --f-mono: "IBM Plex Mono", ui-monospace, Consolas, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0E1413; --sheet: #151D1B; --ink: #E6EEEB; --muted: #9AABA5; --line: #2A3633;
+    --accent: #4CC2A4; --accent-soft: #1B302A; --signal: #F08A4B; --todo-bg: #3D3214; --todo-fg: #FFD978; --chat-bg: #0F1817; --bubble: #1F4A3C;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0E1413; --sheet: #151D1B; --ink: #E6EEEB; --muted: #9AABA5; --line: #2A3633;
+  --accent: #4CC2A4; --accent-soft: #1B302A; --signal: #F08A4B; --todo-bg: #3D3214; --todo-fg: #FFD978; --chat-bg: #0F1817; --bubble: #1F4A3C;
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+body { background: var(--bg); color: var(--ink); font: 15px/1.55 var(--f-body); padding: 32px 16px; }
+.sheet { max-width: 1040px; margin: 0 auto; background: var(--sheet); border: 1px solid var(--line); border-radius: 6px;
+  display: grid; grid-template-columns: 300px minmax(0, 1fr); }
+h1, h2, h3 { font-family: var(--f-display); text-wrap: balance; margin: 0; }
+p { margin: 0; }
+ul { margin: 0; padding: 0; list-style: none; }
+.todo { background: var(--todo-bg); color: var(--todo-fg); padding: 0 4px; border-radius: 3px; font-style: normal; }
+
+/* Columna izquierda */
+.side { padding: 36px 28px; border-right: 1px solid var(--line); display: flex; flex-direction: column; gap: 28px; min-width: 0; }
+.name { font-size: 30px; font-weight: 800; line-height: 1.05; letter-spacing: -0.01em; }
+.role { margin-top: 10px; font-weight: 600; color: var(--accent); font-size: 15px; line-height: 1.35; }
+.label { font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); margin-bottom: 10px; }
+.contact li { display: grid; grid-template-columns: 74px minmax(0, 1fr); gap: 8px; font-size: 13.5px; padding: 4px 0; overflow-wrap: anywhere; }
+.contact li span:first-child { color: var(--muted); }
+.stack-group + .stack-group { margin-top: 14px; }
+.stack-group h3 { font-family: var(--f-body); font-size: 13px; font-weight: 600; margin-bottom: 6px; }
+.chips { display: flex; flex-wrap: wrap; gap: 5px; }
+.chips li { font-family: var(--f-mono); font-size: 11.5px; padding: 2px 7px; border: 1px solid var(--line); border-radius: 3px; }
+.side-list li { font-size: 13.5px; padding: 3px 0 3px 14px; position: relative; }
+.side-list li::before { content: ""; position: absolute; left: 0; top: 11px; width: 6px; height: 2px; background: var(--accent); }
+
+/* Columna principal */
+.main { padding: 36px 40px; display: flex; flex-direction: column; gap: 34px; min-width: 0; }
+.lede { font-size: 18px; line-height: 1.5; max-width: 62ch; }
+.lede strong { color: var(--accent); font-weight: 600; }
+.since { margin-top: 12px; font-family: var(--f-mono); font-size: 12px; color: var(--muted); }
+.section-title { font-size: 21px; font-weight: 700; padding-bottom: 8px; border-bottom: 2px solid var(--ink); margin-bottom: 18px; }
+
+.services { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px 28px; }
+.services h3 { font-size: 16px; font-weight: 700; margin-bottom: 4px; }
+.services p { font-size: 14px; color: var(--muted); }
+
+.case { padding: 20px 0; border-top: 1px solid var(--line); }
+.case:first-of-type { border-top: 0; padding-top: 0; }
+.case-head { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 4px 16px; align-items: baseline; }
+.case h3 { font-size: 18px; font-weight: 700; }
+.case-meta { font-family: var(--f-mono); font-size: 12px; color: var(--muted); }
+.case-desc { margin-top: 6px; font-size: 14.5px; max-width: 70ch; }
+.case ul.points { margin-top: 10px; display: grid; gap: 4px; }
+.case ul.points li { font-size: 14px; padding-left: 16px; position: relative; }
+.case ul.points li::before { content: "→"; position: absolute; left: 0; color: var(--accent); }
+.metrics { margin-top: 14px; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); border: 1px solid var(--line); border-radius: 4px; }
+.metrics div { padding: 10px 12px; border-left: 1px solid var(--line); }
+.metrics div:first-child { border-left: 0; }
+.metrics b { display: block; font-family: var(--f-display); font-size: 22px; font-weight: 700; color: var(--signal); font-variant-numeric: tabular-nums; line-height: 1.1; }
+.metrics span { font-size: 12px; color: var(--muted); line-height: 1.3; display: block; margin-top: 3px; }
+.quote { margin-top: 12px; padding: 10px 14px; background: var(--accent-soft); border-radius: 4px; font-size: 13.5px; }
+.quote code { font-family: var(--f-mono); font-size: 12.5px; }
+.tags { margin-top: 10px; display: flex; flex-wrap: wrap; gap: 5px; }
+.tags li { font-family: var(--f-mono); font-size: 11px; color: var(--accent); background: var(--accent-soft); padding: 2px 7px; border-radius: 3px; }
+
+.more { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px 28px; }
+.more h3 { font-size: 15px; font-weight: 700; }
+.more p { font-size: 13.5px; color: var(--muted); margin-top: 2px; }
+
+.process { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 0; counter-reset: step; }
+.process li { padding: 0 12px 0 0; counter-increment: step; }
+.process li::before { content: counter(step); display: block; font-family: var(--f-mono); font-size: 12px; color: var(--accent); border-top: 2px solid var(--accent); padding-top: 6px; margin-bottom: 4px; }
+.process b { display: block; font-size: 14px; }
+.process span { font-size: 12.5px; color: var(--muted); display: block; line-height: 1.4; }
+
+.cta { display: flex; flex-wrap: wrap; gap: 12px 24px; justify-content: space-between; align-items: center; padding: 20px 22px; background: var(--ink); color: var(--sheet); border-radius: 4px; }
+.cta p { font-family: var(--f-display); font-size: 19px; font-weight: 700; max-width: 40ch; }
+.cta span { font-family: var(--f-mono); font-size: 13px; }
+
+/* Hero 3D (solo pantalla): banda oscura fija en ambos temas */
+.print-only { display: none; }
+.hero { max-width: 1040px; margin: 0 auto 16px; position: relative; overflow: hidden; border-radius: 6px;
+  background: radial-gradient(120% 90% at 75% 40%, #123A33 0%, var(--hero-bg) 62%); color: var(--hero-fg);
+  display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr); min-height: 400px; }
+.hero canvas { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+.hero-text { position: relative; z-index: 1; padding: 44px 40px; display: flex; flex-direction: column; justify-content: center; gap: 14px; pointer-events: none; }
+.hero-text .kicker { font-family: var(--f-mono); font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--hero-accent); }
+.hero-text h1 { font-size: clamp(34px, 5vw, 52px); font-weight: 800; line-height: 1; letter-spacing: -0.02em; }
+.hero-text p { font-size: 17px; line-height: 1.45; color: var(--hero-muted); max-width: 40ch; }
+.hero-text .hint { font-family: var(--f-mono); font-size: 11.5px; color: var(--hero-muted); }
+.hero-stats { display: flex; flex-wrap: wrap; gap: 8px 22px; margin-top: 6px; }
+.hero-stats b { font-family: var(--f-display); font-size: 26px; color: var(--hero-fg); display: block; line-height: 1; font-variant-numeric: tabular-nums; }
+.hero-stats span { font-size: 12px; color: var(--hero-muted); }
+
+/* Tarjetas con inclinación 3D */
+.tilt { transform-style: preserve-3d; transition: transform 0.25s ease, box-shadow 0.25s ease; will-change: transform; }
+.tilt.is-tilting { transition: transform 0.06s linear; box-shadow: 0 18px 40px -22px rgba(10, 40, 34, 0.45); }
+.case.tilt { padding-inline: 14px; margin-inline: -14px; border-radius: 6px; }
+.more > div.tilt { padding: 12px; margin: -12px; border-radius: 6px; }
+
+/* Demo de chat */
+.demo { display: grid; grid-template-columns: minmax(0, 300px) minmax(0, 1fr); gap: 28px; align-items: center; }
+.phone { background: var(--chat-bg); border: 1px solid var(--line); border-radius: 22px; padding: 14px 12px; display: flex; flex-direction: column; gap: 8px; min-height: 380px;
+  transform: perspective(900px) rotateY(10deg) rotateX(4deg); box-shadow: -18px 24px 50px -28px rgba(10, 40, 34, 0.5); }
+.phone-head { font-size: 13px; font-weight: 600; padding: 2px 6px 8px; border-bottom: 1px solid var(--line); display: flex; justify-content: space-between; gap: 8px; }
+.phone-head span { font-weight: 400; font-size: 11px; color: var(--accent); }
+.msg { max-width: 86%; padding: 7px 10px; border-radius: 8px; font-size: 13px; line-height: 1.4; transition: opacity 0.3s ease, transform 0.3s ease; }
+.msg.in { background: var(--sheet); align-self: flex-start; border: 1px solid var(--line); }
+.msg.out { background: var(--bubble); align-self: flex-end; }
+.msg.hide { opacity: 0; transform: translateY(8px); }
+.typing { align-self: flex-start; font-family: var(--f-mono); font-size: 12px; color: var(--muted); }
+.demo-copy h3 { font-size: 18px; margin-bottom: 8px; }
+.demo-copy p { font-size: 14.5px; color: var(--muted); max-width: 52ch; }
+.demo-copy ul { margin-top: 12px; display: grid; gap: 4px; }
+.demo-copy li { font-size: 14px; padding-left: 16px; position: relative; }
+.demo-copy li::before { content: "→"; position: absolute; left: 0; color: var(--accent); }
+.btn { margin-top: 16px; font: 600 13px var(--f-body); color: var(--accent); background: transparent; border: 1.5px solid var(--accent); border-radius: 4px; padding: 7px 14px; cursor: pointer; }
+.btn:hover { background: var(--accent-soft); }
+.btn:focus-visible, .tilt:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+.note { font-family: var(--f-mono); font-size: 11px; color: var(--muted); margin-top: 10px; }
+
+@media screen and (max-width: 820px) {
+  .hero { grid-template-columns: minmax(0, 1fr); border-radius: 0; margin-bottom: 0; min-height: 0; }
+  .hero canvas { position: relative; height: 280px; order: 2; }
+  .hero-text { padding: 32px 16px 8px; }
+  .demo { grid-template-columns: minmax(0, 1fr); }
+  .phone { transform: none; }
+  body { padding-block: 0; padding-inline: 0; }
+  .sheet { grid-template-columns: minmax(0, 1fr); border-radius: 0; border-inline: 0; }
+  .side { border-right: 0; border-bottom: 1px solid var(--line); padding: 28px 16px; }
+  .main { padding: 28px 16px; }
+  .services, .more { grid-template-columns: minmax(0, 1fr); }
+  .metrics { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .metrics div:nth-child(3) { border-left: 0; }
+  .metrics div:nth-child(n+3) { border-top: 1px solid var(--line); }
+  .process { grid-template-columns: minmax(0, 1fr); gap: 12px; }
+}
+
+/* Impresión / PDF: A4, siempre en claro */
+@page { size: A4; margin: 11mm 10mm; }
+@media print {
+  :root, :root[data-theme="dark"] {
+    --bg: #FFFFFF; --sheet: #FFFFFF; --ink: #15201E; --muted: #56645F; --line: #DCE3E0;
+    --accent: #0E6B58; --accent-soft: #E3F1EC; --signal: #C8550F; color-scheme: light;
+  }
+  body { padding: 0; font-size: 12.5px; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .sheet { border: 0; max-width: none; grid-template-columns: 215px minmax(0, 1fr); zoom: 0.86; }
+  .side { padding: 0 16px 0 0; gap: 18px; }
+  .main { padding: 0 0 0 20px; gap: 20px; }
+  .name { font-size: 24px; }
+  .lede { font-size: 14.5px; }
+  .section-title { font-size: 16px; margin-bottom: 10px; break-after: avoid; }
+  .quote { font-size: 11px; } .quote code { font-size: 10.5px; }
+  .services h3, .case h3 { font-size: 14px; } .more h3 { font-size: 13px; }
+  .case-meta, .since { font-size: 10.5px; }
+  .services { gap: 10px 18px; }
+  .services p, .case-desc, .case ul.points li, .more p { font-size: 11.5px; }
+  .case { padding: 12px 0; break-inside: avoid; }
+  .metrics b { font-size: 17px; }
+  .metrics span { font-size: 10px; }
+  .process li, .more > div, .services > div { break-inside: avoid; }
+  .screen-only { display: none !important; }
+  .print-only { display: block; }
+  .case.tilt, .more > div.tilt { margin: 0; padding-inline: 0; transform: none !important; }
+  .more > div.tilt { padding: 0; }
+  .chips li { font-size: 10px; }
+  .contact li, .side-list li { font-size: 11.5px; }
+}
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; animation: none !important; } }
+</style>
+</head>
+<body>
+
+
+<header class="hero screen-only" aria-label="Presentación">
+  <div class="hero-text">
+    <p class="kicker">Agentes de IA · Automatización · Meta Ads</p>
+    <h1>Kevin Jonathan Celestino Cruz</h1>
+    <p>Conecto WhatsApp, redes, teléfono y tus datos en un solo sistema que atiende, vende y registra solo.</p>
+    <div class="hero-stats">
+      <div><b>45</b><span>conversaciones en 30 días</span></div>
+      <div><b>$35</b><span>MXN por conversación</span></div>
+      <div><b>2</b><span>idiomas en un agente de voz</span></div>
+    </div>
+    <div class="hero-links"><a class="wa" href="https://wa.me/522721273231" target="_blank" rel="noopener">Escribime por WhatsApp</a><a class="pdf" href="cv-kevin-celestino.pdf" download>Descargar CV en PDF</a></div>
+    <p class="hint">Arrastrá la red para girarla</p>
+  </div>
+  <canvas id="net" aria-label="Red 3D de las herramientas que conecto: WhatsApp, n8n, agente de IA, Airtable, Meta Ads y más"></canvas>
+</header>
+
+<div class="sheet">
+  <aside class="side">
+    <div class="print-only">
+      <h1 class="name">Kevin Jonathan Celestino Cruz</h1>
+      <p class="role">Automatización con n8n, agentes de IA a medida y publicidad en Meta</p>
+    </div>
+
+    <div>
+      <p class="label">Contacto</p>
+      <ul class="contact">
+        <li><span>WhatsApp</span><span>+52 272 127 3231</span></li>
+        <li><span>Email</span><span>jonathancelestinocruz@gmail.com</span></li>
+        <li><span>Ubicación</span><span>México · trabajo remoto</span></li>
+      </ul>
+    </div>
+
+    <div>
+      <p class="label">Stack técnico</p>
+      <div class="stack-group">
+        <h3>Automatización</h3>
+        <ul class="chips"><li>n8n self-hosted</li><li>Easypanel</li><li>Webhooks</li><li>Airtable</li><li>Error handling</li></ul>
+      </div>
+      <div class="stack-group">
+        <h3>IA y agentes</h3>
+        <ul class="chips"><li>Claude API</li><li>RAG</li><li>Vapi (voz)</li><li>Prompt engineering</li><li>Transcripción de audio</li></ul>
+      </div>
+      <div class="stack-group">
+        <h3>Ecosistema Meta</h3>
+        <ul class="chips"><li>Business Suite</li><li>Business Manager</li><li>Ads Manager</li><li>WhatsApp Business</li><li>WhatsApp Cloud API</li><li>Messenger</li><li>Instagram</li></ul>
+      </div>
+      <div class="stack-group">
+        <h3>Desarrollo</h3>
+        <ul class="chips"><li>Node.js / Express</li><li>Next.js</li><li>PWA</li><li>Python</li><li>Remotion</li><li>Chrome Extensions</li><li>GitHub Pages</li></ul>
+      </div>
+    </div>
+
+    <div>
+      <p class="label">Además</p>
+      <ul class="side-list">
+        <li>Diseño de ofertas y embudos de venta</li>
+        <li>Prospección de clientes con IA</li>
+        <li>Propuestas con cálculo de ROI</li>
+        <li>Carruseles y reels para redes</li>
+      </ul>
+    </div>
+
+    <div>
+      <p class="label">Idiomas</p>
+      <ul class="side-list"><li>Español nativo</li></ul>
+    </div>
+  </aside>
+
+  <main class="main">
+    <section>
+      <p class="lede">Construyo <strong>asistentes de IA y automatizaciones a medida</strong> para negocios que atienden por WhatsApp, redes o teléfono. Conecto las cuentas de Meta, armo la publicidad que trae los mensajes y dejo un agente que responde, califica y registra cada pedido o cliente sin que nadie tenga que copiarlo a mano.</p>
+      <p class="since">Automatizando con n8n desde 2025 · 25 workflows en instancia propia · proyectos en México</p>
+    </section>
+
+    <section>
+      <h2 class="section-title">Servicios</h2>
+      <div class="services">
+        <div>
+          <h3>Agentes de IA para WhatsApp y redes</h3>
+          <p>Entrenados con la información real del negocio (RAG). Recuerdan cada conversación, entienden audios, agrupan mensajes seguidos y pasan el lead a una persona cuando está listo para comprar.</p>
+        </div>
+        <div>
+          <h3>Asistentes telefónicos de voz</h3>
+          <p>Contestan llamadas, toman pedidos, calculan el total con los precios del día y los dejan registrados. Adaptados al habla de la región, incluso en lengua indígena.</p>
+        </div>
+        <div>
+          <h3>Automatizaciones con n8n</h3>
+          <p>Flujos que conectan formularios, WhatsApp, Airtable, email y APIs. Con validación de datos y avisos automáticos cuando algo falla.</p>
+        </div>
+        <div>
+          <h3>Configuración de Meta y publicidad</h3>
+          <p>Alta y orden de Business Manager, página, Instagram y WhatsApp Business. Campañas de mensajes en Ads Manager con WhatsApp, Messenger e Instagram como destino.</p>
+        </div>
+        <div>
+          <h3>Apps y paneles a medida</h3>
+          <p>Punto de venta en el celular, paneles de pedidos, apps para comunidades y tiendas en línea. Datos editables por el propio negocio.</p>
+        </div>
+        <div>
+          <h3>Contenido y estrategia de captación</h3>
+          <p>Carruseles y reels generados por código, oferta y embudo de venta, guiones de llamada y prospección de clientes potenciales.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="screen-only">
+      <h2 class="section-title">Así responde un agente</h2>
+      <div class="demo">
+        <div class="phone" id="phone" aria-live="polite">
+          <div class="phone-head">Generando Proyectos Ambientales <span>en línea</span></div>
+          <div class="msg in">Hola, vi su anuncio. ¿Cuánto cuesta un permiso ambiental?</div>
+          <div class="msg out">¡Hola! Con gusto le ayudo. Para darle el dato correcto: ¿su empresa ya está operando o está por arrancar?</div>
+          <div class="msg in">Arrancamos el próximo mes, es un taller.</div>
+          <div class="msg out">Perfecto. Le ofrecemos un diagnóstico de riesgo regulatorio gratis: en 15 minutos le decimos qué permisos necesita. ¿Le agendo mañana a las 10?</div>
+          <div class="msg in">Sí, mañana a las 10 está bien.</div>
+          <div class="msg out">Listo, quedó agendado ✔ Le llega un recordatorio una hora antes.</div>
+        </div>
+        <div class="demo-copy">
+          <h3>Primero califica, después vende</h3>
+          <p>En lugar de soltar un precio, el agente pregunta lo justo, ofrece el siguiente paso y agenda. Cuando el cliente está listo, pasa la conversación a una persona.</p>
+          <ul>
+            <li>Responde en segundos, de día o de noche.</li>
+            <li>Habla solo con la información del negocio.</li>
+            <li>Guarda cada lead con sus datos para el seguimiento.</li>
+          </ul>
+          <button class="btn" id="replay" type="button">Reproducir conversación</button>
+          <p class="note">Conversación de ejemplo basada en el embudo diseñado para este cliente.</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2 class="section-title">Casos reales</h2>
+
+      <article class="case tilt">
+        <div class="case-head">
+          <h3>Generando Proyectos Ambientales</h3>
+          <span class="case-meta">Consultora de permisos ambientales · México · 2026</span>
+        </div>
+        <p class="case-desc">Campaña de Meta Ads para conseguir clientes por WhatsApp. Resolví la vinculación de WhatsApp Business con el Business Manager, que impedía usarlo como destino de los anuncios, y auditamos el embudo de venta.</p>
+        <div class="metrics">
+          <div><b>45</b><span>conversaciones de WhatsApp en 30 días</span></div>
+          <div><b>$35</b><span>MXN por conversación iniciada</span></div>
+          <div><b>20,494</b><span>personas alcanzadas</span></div>
+          <div><b>~$85</b><span>USD de inversión total</span></div>
+        </div>
+        <ul class="points">
+          <li>Primer lead calificado con reunión agendada para un servicio de ~$1,000 USD.</li>
+          <li>Rediseño del embudo: diagnóstico gratis como entrada, calificación en el primer mensaje, plan anual de cumplimiento.</li>
+          <li>Carrusel de Instagram con la identidad de la marca para el nuevo mensaje.</li>
+        </ul>
+        <ul class="tags"><li>Ads Manager</li><li>Business Manager</li><li>WhatsApp Business</li><li>Embudo de venta</li></ul>
+      </article>
+
+      <article class="case tilt">
+        <div class="case-head">
+          <h3>Carnicería La Cuesta</h3>
+          <span class="case-meta">Comercio local · Ciudad Mendoza, Veracruz · 2026</span>
+        </div>
+        <p class="case-desc">Asistente telefónico que atiende en español y en náhuatl. Toma el pedido, confirma kilos y dirección, dice el total con los precios del día y lo guarda solo. El dueño ve en una pantalla los pedidos de hoy y cuántos kilos preparar de cada corte.</p>
+        <div class="quote">Prueba real: <code>"Nikneki ome kilo costilla ihuan medio kilo longaniza para ichan Doroteo"</code> → 2 kg costilla + ½ kg longaniza, total $230, registrado al instante.</div>
+        <ul class="points">
+          <li>Workflow n8n de 15 nodos que recibe el pedido desde el agente de voz y lo registra en Airtable.</li>
+          <li>Si el registro falla, el asistente avisa al cliente con calma y el dueño recibe un correo con los datos.</li>
+        </ul>
+        <ul class="tags"><li>Vapi</li><li>n8n</li><li>Airtable</li><li>Voz bilingüe</li></ul>
+      </article>
+
+      <article class="case tilt">
+        <div class="case-head">
+          <h3>Vendedor IA para WhatsApp</h3>
+          <span class="case-meta">Solución para negocios high-ticket</span>
+        </div>
+        <p class="case-desc">Chatbot sobre la API oficial de WhatsApp, entrenado con los documentos del negocio. Responde 24/7, califica el interés y deriva al equipo de ventas.</p>
+        <ul class="points">
+          <li>Base de conocimiento indexada (RAG): solo responde con información del negocio.</li>
+          <li>Memoria por usuario, transcripción de notas de voz y agrupación de mensajes seguidos antes de responder.</li>
+          <li>Configuración completa en Facebook for Developers: app, número verificado y webhook.</li>
+        </ul>
+        <ul class="tags"><li>WhatsApp Cloud API</li><li>n8n</li><li>RAG</li><li>Memoria conversacional</li></ul>
+      </article>
+    </section>
+
+    <section>
+      <h2 class="section-title">Otros proyectos</h2>
+      <div class="more">
+        <div class="tilt">
+          <h3>Caja: punto de venta en el celular</h3>
+          <p>Vende, escanea códigos de barras con la cámara, sigue funcionando sin internet y trae un asistente de IA que responde sobre las ventas reales. Datos en Airtable.</p>
+        </div>
+        <div class="tilt">
+          <h3>App para comunidad religiosa (prototipo)</h3>
+          <p>App móvil con registro, eventos, donativos en moneda local y panel de administración que envía notificaciones al instante.</p>
+        </div>
+        <div class="tilt">
+          <h3>Prospección con IA en Orizaba</h3>
+          <p>Análisis de presencia digital de restaurantes y hoteles con datos de contacto y oportunidades, más guiones de llamada en frío.</p>
+        </div>
+        <div class="tilt">
+          <h3>Vigía Web</h3>
+          <p>Extensión de Chrome que analiza la seguridad de cualquier página: HTTPS, headers, formularios y librerías vulnerables.</p>
+        </div>
+        <div class="tilt">
+          <h3>Conexión con agentes de Meta</h3>
+          <p>Servidor en Node.js que conecta un negocio con la plataforma de agentes de Meta para WhatsApp: webhooks firmados y carga de la base de conocimiento.</p>
+        </div>
+        <div class="tilt">
+          <h3>Reel con motion graphics</h3>
+          <p>Video promocional animado por código con Remotion: escenas, subtítulos sincronizados y voz en off.</p>
+        </div>
+        <div class="tilt">
+          <h3>Cuestionarios de descubrimiento</h3>
+          <p>Formularios en lenguaje simple para que el cliente defina su app o tienda antes de construir. Las respuestas llegan por correo.</p>
+        </div>
+        <div class="tilt">
+          <h3>Propuestas como página web</h3>
+          <p>Cotizaciones interactivas que muestran el problema, la solución, una prueba real y lo que incluye, listas para mandar por WhatsApp.</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2 class="section-title">Cómo trabajo</h2>
+      <ol class="process" style="margin:0;padding:0;list-style:none">
+        <li><b>Diagnóstico</b><span>Llamada para entender cómo atiendes hoy y dónde se pierden clientes.</span></li>
+        <li><b>Propuesta</b><span>Alcance, precio y retorno estimado con números de tu negocio.</span></li>
+        <li><b>Construcción</b><span>Demo funcionando antes de conectar nada a producción.</span></li>
+        <li><b>Prueba real</b><span>Con frases y casos reales de tus clientes.</span></li>
+        <li><b>Entrega</b><span>Capacitación, avisos de error y soporte mensual.</span></li>
+      </ol>
+    </section>
+
+    <section class="cta">
+      <p>¿Tu negocio pierde mensajes, llamadas o pedidos? Hablemos 20 minutos.</p>
+      <span>WhatsApp <a href="https://wa.me/522721273231" target="_blank" rel="noopener">+52 272 127 3231</a></span>
+    </section>
+  </main>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script>
+(function () {
+  var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  /* ---------- Red 3D del hero ---------- */
+  var canvas = document.getElementById("net");
+  if (canvas && window.THREE) {
+    var renderer = new THREE.WebGLRenderer({ canvas: canvas, antialias: true, alpha: true });
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
+    var scene = new THREE.Scene();
+    var camera = new THREE.PerspectiveCamera(42, 1, 0.1, 100);
+    camera.position.set(0, 0, 11);
+    var world = new THREE.Group();
+    scene.add(world);
+
+    var nodes = [
+      { id: "ai", label: "Agente IA", pos: [0, 0, 0], main: true },
+      { id: "wa", label: "WhatsApp", pos: [-3.1, 1.6, 0.8] },
+      { id: "ig", label: "Instagram", pos: [-2.4, -1.9, 1.6] },
+      { id: "ms", label: "Messenger", pos: [-3.4, -0.2, -1.6] },
+      { id: "tel", label: "Teléfono", pos: [-1.0, 2.8, -1.4] },
+      { id: "n8n", label: "n8n", pos: [2.6, 1.2, 0.6], main: true },
+      { id: "at", label: "Airtable", pos: [3.4, -1.0, -0.8] },
+      { id: "mail", label: "Email", pos: [2.0, 2.9, -1.6] },
+      { id: "ads", label: "Meta Ads", pos: [-0.4, -3.3, -2.4] },
+      { id: "rag", label: "Base de conocimiento", pos: [1.2, -2.4, 1.8] }
+    ];
+    var edges = [["ads","wa"],["ads","ig"],["ads","ms"],["wa","ai"],["ig","ai"],["ms","ai"],["tel","ai"],["rag","ai"],["ai","n8n"],["n8n","at"],["n8n","mail"]];
+    var byId = {};
+    var green = new THREE.Color("#5FD3B3"), orange = new THREE.Color("#F08A4B"), soft = new THREE.Color("#A3B8B1");
+
+    function labelSprite(text, main) {
+      var c = document.createElement("canvas"), ctx = c.getContext("2d");
+      var fs = 44, font = "600 " + fs + "px 'IBM Plex Sans', 'Segoe UI', sans-serif";
+      ctx.font = font;
+      c.width = Math.ceil(ctx.measureText(text).width) + 36;
+      c.height = fs + 26;
+      ctx.font = font;
+      ctx.fillStyle = main ? "#EEF5F2" : "#C9D9D3";
+      ctx.textBaseline = "middle";
+      ctx.fillText(text, 18, c.height / 2);
+      var tex = new THREE.CanvasTexture(c);
+      tex.minFilter = THREE.LinearFilter;
+      var sp = new THREE.Sprite(new THREE.SpriteMaterial({ map: tex, transparent: true, depthWrite: false }));
+      var h = main ? 0.42 : 0.34;
+      sp.scale.set(h * c.width / c.height, h, 1);
+      return sp;
+    }
+
+    nodes.forEach(function (n) {
+      var g = new THREE.Group();
+      g.position.set(n.pos[0], n.pos[1], n.pos[2]);
+      var r = n.main ? 0.34 : 0.2, col = n.main ? orange : green;
+      var core = new THREE.Mesh(new THREE.IcosahedronGeometry(r, 1), new THREE.MeshBasicMaterial({ color: col }));
+      var halo = new THREE.Mesh(new THREE.IcosahedronGeometry(r * 1.9, 1), new THREE.MeshBasicMaterial({ color: col, wireframe: true, transparent: true, opacity: 0.22 }));
+      var lab = labelSprite(n.label, n.main);
+      lab.position.set(0, -(r + 0.32), 0);
+      g.add(core); g.add(halo); g.add(lab);
+      world.add(g);
+      byId[n.id] = { group: g, halo: halo, label: lab, n: n };
+    });
+
+    var pulses = [];
+    edges.forEach(function (e, i) {
+      var a = byId[e[0]].group.position, b = byId[e[1]].group.position;
+      var mid = a.clone().add(b).multiplyScalar(0.5);
+      mid.z += 0.9;
+      var curve = new THREE.QuadraticBezierCurve3(a.clone(), mid, b.clone());
+      var geo = new THREE.BufferGeometry().setFromPoints(curve.getPoints(40));
+      world.add(new THREE.Line(geo, new THREE.LineBasicMaterial({ color: soft, transparent: true, opacity: 0.35 })));
+      var dot = new THREE.Mesh(new THREE.SphereGeometry(0.07, 12, 12), new THREE.MeshBasicMaterial({ color: green }));
+      world.add(dot);
+      var p = { curve: curve, dot: dot, t: (i * 0.137) % 1, speed: 0.0035 + (i % 3) * 0.0012 };
+      dot.position.copy(curve.getPoint(p.t));
+      pulses.push(p);
+    });
+
+    // Partículas de fondo
+    var pts = [];
+    for (var i = 0; i < 260; i++) pts.push((Math.random() - 0.5) * 22, (Math.random() - 0.5) * 14, (Math.random() - 0.5) * 12 - 3);
+    var pg = new THREE.BufferGeometry();
+    pg.setAttribute("position", new THREE.Float32BufferAttribute(pts, 3));
+    scene.add(new THREE.Points(pg, new THREE.PointsMaterial({ color: soft, size: 0.035, transparent: true, opacity: 0.5 })));
+
+    var hero = canvas.parentElement;
+    var rotY = 0.4, rotX = 0.12, dragging = false, lx = 0, ly = 0, tX = 0, tY = 0, clock = 0;
+
+    function render() {
+      world.rotation.y = rotY + tX;
+      world.rotation.x = rotX + tY;
+      renderer.render(scene, camera);
+    }
+    function size() {
+      var w = canvas.clientWidth, h = canvas.clientHeight;
+      if (!w || !h) return;
+      renderer.setSize(w, h, false);
+      camera.aspect = w / h;
+      // En escritorio la red se corre a la derecha para dejar lugar al texto
+      var wide = hero.clientWidth > 820;
+      world.position.x = wide ? 3.6 : 0;
+      camera.position.z = wide ? 12 : 10.5;
+      camera.updateProjectionMatrix();
+      render();
+    }
+    size();
+    window.addEventListener("resize", size);
+
+    canvas.style.touchAction = "pan-y";
+    canvas.style.cursor = "grab";
+    canvas.addEventListener("pointerdown", function (e) { dragging = true; lx = e.clientX; ly = e.clientY; canvas.setPointerCapture(e.pointerId); });
+    canvas.addEventListener("pointerup", function () { dragging = false; });
+    canvas.addEventListener("pointercancel", function () { dragging = false; });
+    canvas.addEventListener("pointermove", function (e) {
+      if (!dragging) return;
+      rotY += (e.clientX - lx) * 0.006;
+      rotX = Math.max(-0.7, Math.min(0.7, rotX + (e.clientY - ly) * 0.004));
+      lx = e.clientX; ly = e.clientY;
+      render();
+    });
+    hero.addEventListener("pointermove", function (e) {
+      var r = hero.getBoundingClientRect();
+      tX = ((e.clientX - r.left) / r.width - 0.5) * 0.3;
+      tY = ((e.clientY - r.top) / r.height - 0.5) * 0.2;
+    });
+
+    function tick() {
+      clock += 0.016;
+      if (!dragging) rotY += 0.0022;
+      pulses.forEach(function (p) {
+        p.t = (p.t + p.speed) % 1;
+        p.dot.position.copy(p.curve.getPoint(p.t));
+      });
+      Object.keys(byId).forEach(function (k, j) {
+        var s = 1 + Math.sin(clock * 2 + j) * 0.08;
+        byId[k].halo.scale.set(s, s, s);
+        byId[k].halo.rotation.y += 0.01;
+      });
+      render();
+      requestAnimationFrame(tick);
+    }
+    if (!reduce) requestAnimationFrame(tick);
+
+    // Redibuja las etiquetas cuando carga la tipografía
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(function () {
+      Object.keys(byId).forEach(function (k) {
+        var b = byId[k], lab = labelSprite(b.n.label, b.n.main);
+        lab.position.copy(b.label.position);
+        b.group.remove(b.label); b.group.add(lab); b.label = lab;
+      });
+      render();
+    });
+  }
+
+  /* ---------- Inclinación 3D de tarjetas ---------- */
+  if (!reduce && window.matchMedia("(hover: hover)").matches) {
+    document.querySelectorAll(".tilt").forEach(function (el) {
+      var max = el.classList.contains("case") ? 4 : 7;
+      el.addEventListener("pointermove", function (e) {
+        var r = el.getBoundingClientRect();
+        var x = (e.clientX - r.left) / r.width - 0.5, y = (e.clientY - r.top) / r.height - 0.5;
+        el.classList.add("is-tilting");
+        el.style.transform = "perspective(900px) rotateY(" + (x * max).toFixed(2) + "deg) rotateX(" + (-y * max).toFixed(2) + "deg)";
+      });
+      el.addEventListener("pointerleave", function () { el.classList.remove("is-tilting"); el.style.transform = ""; });
+    });
+  }
+
+  /* ---------- Demo de chat ---------- */
+  var phone = document.getElementById("phone"), btn = document.getElementById("replay"), timers = [];
+  if (phone && btn) {
+    btn.addEventListener("click", function () {
+      timers.forEach(clearTimeout); timers = [];
+      var old = phone.querySelector(".typing"); if (old) old.remove();
+      var msgs = Array.prototype.slice.call(phone.querySelectorAll(".msg"));
+      msgs.forEach(function (m) { m.classList.add("hide"); });
+      var typing = document.createElement("div");
+      typing.className = "typing"; typing.textContent = "escribiendo…"; typing.hidden = true;
+      phone.appendChild(typing);
+      var t = 300;
+      msgs.forEach(function (m) {
+        var out = m.classList.contains("out");
+        if (out) {
+          timers.push(setTimeout(function () { phone.insertBefore(typing, m); typing.hidden = false; }, t));
+          t += 900;
+        }
+        timers.push(setTimeout(function () { typing.hidden = true; m.classList.remove("hide"); }, t));
+        t += out ? 700 : 1000;
+      });
+      timers.push(setTimeout(function () { typing.remove(); }, t));
+    });
+  }
+})();
+</script>
+
+</body>
+</html>
